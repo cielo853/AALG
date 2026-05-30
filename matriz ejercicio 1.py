@@ -6,9 +6,9 @@ def contar_multiplos(matriz):
     if len(matriz) == 1:
         return contar_fila(matriz[0])
     mid = len(matriz) // 2
-    izquierda = matriz[:mid]
-    derecha = matriz[mid:]
-    return contar_multiplos(izquierda) + contar_multiplos(derecha)
+    izq = matriz[:mid]
+    der = matriz[mid:]
+    return contar_multiplos(izq) + contar_multiplos(der)
 
 def contar_fila(fila):
     if len(fila) == 0:
@@ -16,15 +16,15 @@ def contar_fila(fila):
     if len(fila) == 1:
         return 1 if (fila[0] % 5 == 0 or fila[0] % 7 == 0) else 0
     mid = len(fila) // 2
-    izquierda = fila[:mid]
-    derecha = fila[mid:]
-    return contar_fila(izquierda) + contar_fila(derecha)
+    izq = fila[:mid]
+    der = fila[mid:]
+    return contar_fila(izq) + contar_fila(der)
 
 def main():
-    N = 11  # tamaño fijo
+    N = 11 
     matriz = [[random.randint(99, 999) for _ in range(N)] for _ in range(N)]
     
-    print("\nMatriz generada (11x11):")
+    print("Matriz generada (11x11):")
     for fila in matriz:   
         print(" ".join(f"{x:3d}" for x in fila))  
     
